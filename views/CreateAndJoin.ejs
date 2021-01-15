@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyntaxEdutek</title>
+    <link rel='stylesheet' href='/stylesheet/style.css'>
+    <script>
+        const Error = "<%= Error %>"
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="panel">
+                <form action="/" method="POST" onsubmit = "handleSubmit()">
+                    <div class="category-selection">
+                        <input onchange="handleChange()" type="radio" checked id="createRoom" name="roomType" value="Create Room">
+                        <label for="createRoom">Create Room</label>
+
+                        <input onchange="handleChange()" type="radio" id="joinRoom" name="roomType" value="Join Room">
+                        <label for="joinRoom">Join Room</label>
+                    </div>
+
+                    <div class="inputName">
+                        <input onchange="handleInput()" type="text" id="inputUserName" placeholder="Enter your name..." name="UserName">
+                    </div>
+
+                    <div class="inputId">
+                        <input onchange="handleInput()" type="text" id="inputRoomId" placeholder="Enter room ID..." name="RoomID"><br>
+                        <% if(Error){ %>
+                            <small class="errorMessage"><%= Error %></small>
+                        <% } %>
+                    </div>
+
+                    <div class="button">
+                        <input type="submit" class="btn disabled" value="Create Room" disabled>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/javascript/roomID.js"></script>
+
+</body>
+
+</html>
